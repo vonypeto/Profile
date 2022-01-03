@@ -1,0 +1,36 @@
+#tsparticles {
+  -o-object-fit: cover;
+  object-fit: cover;
+  background: #232a34;
+  position: absolute;
+  background-color: black;
+  background-image: url("");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50% 50%;
+  position: absolute;
+}
+canvas {
+  display: block;
+}
+
+.typically {
+  color: #fff;
+  font-size: 40px;
+  text-align: center;
+
+  @media screen and (max-width: 768px) {
+    font-size: 30px;
+  }
+  @media screen and (max-width: 480px) {
+    font-size: 25px;
+  }
+}
+.footer-container {
+  height: 17.8%;
+  margin-top: -50px;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+}
