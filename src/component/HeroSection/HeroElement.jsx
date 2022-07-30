@@ -2,18 +2,20 @@ import styled from "styled-components";
 import { MdArrowForward, MdKeyboardArrowRight } from "react-icons/md";
 import Wave from "../../asset/images/wave.svg";
 import Typical from "react-typical";
+import { Col, Row } from "antd";
+import Image from "../../asset/images/b6.png";
 
 export const HeroContainer = styled.div`
   /* background: #0c0c0c; */
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   /* padding: 0 30px; */
-  height: 700px;
+  height: 750px;
   position: relative;
-  background-repeat: no-repeat;
-  background-image: url(${Wave});
-  background-size: cover;
+  background-repeat: no-repeat, no-repeat;
+  background-image: url(${Wave}), url(${Image});
+  background-size: cover, cover;
 
   z-index: 1;
   :before {
@@ -23,6 +25,8 @@ export const HeroContainer = styled.div`
     right: 0;
     bottom: 0;
     left: 0;
+    background-image: url(${Image});
+    background-size: cover;
     background: linear-gradient(
         180deg,
         rgba(0, 0, 0, 0.2) 0%,
@@ -32,6 +36,26 @@ export const HeroContainer = styled.div`
     z-index: 2;
     opacity: 0.5;
   }
+  :after {
+    content: "";
+    position: absolute;
+    background-image: url(${Image});
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  @media screen and (max-width: 1024px) {
+    height: 600px;
+  } ;;;;
+`;
+export const BgCover = styled.div`
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
+  opacity: 0.1;
+  background-repeat: no-repeat;
+  background-size: 300px 100px;
+  background-image: url(${Image});
 `;
 export const HeroBg = styled.div`
   position: "absolute";
@@ -45,18 +69,23 @@ export const HeroBg = styled.div`
 `;
 export const HeroContent = styled.div`
   z-index: 3;
-  margin-top: -180px;
+  text-align: right;
   max-width: 1200px;
   position: absolute;
   padding: 8px 24px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-left: 180px;
+  margin-left: 400px;
+  margin-top: 140px;
+  @media screen and (max-width: 1440px) {
+    margin-left: 200px;
+    margin-top: 100px;
+  }
   @media screen and (max-width: 1024px) {
     justify-content: center;
     align-items: center;
-    margin-top: -250px;
+
     margin-left: auto;
     margin-right: auto;
     text-align: center;
@@ -65,7 +94,7 @@ export const HeroContent = styled.div`
   @media screen and (max-width: 768px) {
     justify-content: center;
     align-items: center;
-    margin-top: -250px;
+
     margin-left: auto;
     margin-right: auto;
     text-align: center;
@@ -130,13 +159,17 @@ export const ArrowRight = styled(MdKeyboardArrowRight)`
 `;
 export const HeroPhoto = styled.div`
   z-index: 3;
-  margin-top: -220px;
   padding: 8px 24px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-right: 180px;
-  @media screen and (max-width: 768px) {
+  margin-right: 400px;
+  margin-top: 60px;
+  @media screen and (max-width: 1440px) {
+    margin-left: 200px;
+    margin-top: 5px;
+  }
+  @media screen and (max-width: 991px) {
     display: none;
   }
 `;
@@ -158,10 +191,16 @@ export const HeroProfilePhoto = styled.div`
   background-image: url("https://joeschmoe.io/api/v1/random");
   border-radius: 50%;
 `;
+export const HeroRow = styled(Row)`
+  display: grid;
+  grid-auto-columns: minmax(auto, 1fr);
+  align-items: center;
+`;
+
 // import styled from "styled-components";
 // import { MdArrowForward, MdKeyboardArrowRight } from "react-icons/md";
 // import Wave from "../../asset/images/wave.svg";
-// export const HeroContainer = styled.div`
+// export const HeroContainer = styled.div
 //   /* background: #0c0c0c; */
 //   display: flex;
 //   justify-content: space-between;

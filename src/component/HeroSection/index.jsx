@@ -15,10 +15,11 @@ import {
   TypicalContext,
   HeroProfilePic,
   HeroProfilePhoto,
+  BgCover,
 } from "./HeroElement";
 import { Button, ButtonLearn } from "./ButtonElements";
 import Typical from "react-typical";
-
+import { Col, Row } from "antd";
 const HeroSection = () => {
   const [hover, setHover] = useState(false);
   const onHover = () => {
@@ -34,76 +35,86 @@ const HeroSection = () => {
   return (
     <>
       <HeroContainer>
+        {" "}
         <HeroBg>
           <Particles
             id="tsparticles"
+            canvasClassName="display-canvas"
             init={particlesInit}
             loaded={particlesLoaded}
             options={particlesConfig}
-          />
+            width="25vw"
+            height="25vh"
+          />{" "}
+          <Row>
+            <Col xs={24} sm={24} md={24} lg={12} xl={12}>
+              {" "}
+              <HeroContent>
+                <HeroH3>
+                  <p>
+                    Hello, My Name is{" "}
+                    <span style={{ color: "#01bf71" }}> Von</span>
+                  </p>
+                </HeroH3>
+                <TypicalContext
+                  className="typically"
+                  steps={[
+                    "React Developer",
+                    1000,
+                    "Full Stack Developer",
+                    2000,
+                  ]}
+                  loop={Infinity}
+                />
+                <HeroP>Highly skilled at backend and average at frontend</HeroP>
+                <HeroBtnWrapper>
+                  <ButtonLearn
+                    to="signup"
+                    onMouseEnter={onHover}
+                    onMouseLeave={onHover}
+                    primary="true"
+                    dark="true"
+                    smooth={true}
+                    duration={500}
+                    spy={true}
+                    exact="true"
+                    offset={-80}
+                  >
+                    Learn More
+                  </ButtonLearn>
+                  <Button
+                    to="signup"
+                    onMouseEnter={onHover}
+                    onMouseLeave={onHover}
+                    primary="true"
+                    dark="true"
+                    smooth={true}
+                    duration={500}
+                    spy={true}
+                    exact="true"
+                    offset={-80}
+                  >
+                    Hire Me {hover ? <ArrowForward /> : <ArrowRight />}
+                  </Button>
+                </HeroBtnWrapper>
+              </HeroContent>
+            </Col>
+            <Col xs={24} sm={24} md={12} lg={12} xl={12}>
+              {" "}
+              <HeroPhoto>
+                <HeroProfilePic>
+                  <HeroProfilePhoto></HeroProfilePhoto>
+                </HeroProfilePic>
+              </HeroPhoto>
+            </Col>
+          </Row>
         </HeroBg>
-        <HeroContent>
-          <HeroH3>
-            <p>
-              Hello, My Name is <span style={{ color: "#01BF71" }}> Von</span>
-            </p>
-          </HeroH3>
-          <TypicalContext
-            className="typically"
-            steps={[
-              "React Developer",
-              1000,
-              "Full Stack Developer(BackEnd)",
-              2000,
-            ]}
-            loop={Infinity}
-          />
-          <HeroP>
-            Sign up for a new accoun today and recive $250 in credit towards
-            your next payment
-          </HeroP>
-          <HeroBtnWrapper>
-            <ButtonLearn
-              to="signup"
-              onMouseEnter={onHover}
-              onMouseLeave={onHover}
-              primary="true"
-              dark="true"
-              smooth={true}
-              duration={500}
-              spy={true}
-              exact="true"
-              offset={-80}
-            >
-              Learn More
-            </ButtonLearn>
-            <Button
-              to="signup"
-              onMouseEnter={onHover}
-              onMouseLeave={onHover}
-              primary="true"
-              dark="true"
-              smooth={true}
-              duration={500}
-              spy={true}
-              exact="true"
-              offset={-80}
-            >
-              Hire Me {hover ? <ArrowForward /> : <ArrowRight />}
-            </Button>
-          </HeroBtnWrapper>
-        </HeroContent>
-        <HeroPhoto>
-          <HeroProfilePic>
-            <HeroProfilePhoto></HeroProfilePhoto>
-          </HeroProfilePic>
-        </HeroPhoto>
       </HeroContainer>
-      <div class="footer-container">
-        <div class="footer-parent">
+      {/* <div className="footer-container">
+        <div className="footer-parent">
           <img src={FooterImage} />
         </div>
-      </div>
+      </div> */}
     </>
   );
 };

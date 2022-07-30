@@ -4,7 +4,7 @@ const particlesConfig = {
     events: {
       onclick: { enable: false, mode: "push" },
       onhover: {
-        enable: true,
+        enable: false,
         mode: "attract",
         parallax: { enable: false, force: 60, smooth: 10 },
       },
